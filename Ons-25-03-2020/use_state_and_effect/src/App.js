@@ -80,17 +80,20 @@ function Clock() {
 function ShowJoke() {
   
   const[data, setData] = useState([]);
-  useEffect(() => {
+  const handleClick = () => {
       fetch("https://api.chucknorris.io/jokes/random")
       .then(res=>res.json())
       .then(joke => {
         setData(joke);
       });
-  }, []);
+  };
   
   return (
+    <div>
+    <button onClick={handleClick}>Get Chuck Joke</button>
     <p>{data.value}</p>
-  )
+    </div>
+  );
 
 }
 
