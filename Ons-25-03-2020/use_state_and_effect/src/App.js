@@ -13,6 +13,7 @@ function App() {
       <Clock></Clock>
       <p>3.a</p>
       <ShowJoke></ShowJoke>
+      
     </div>
   );
 }
@@ -78,7 +79,7 @@ function Clock() {
 
 //Exercise 3
 function ShowJoke() {
-  
+  const[dadData, setDadData] = useState([]);
   const[data, setData] = useState([]);
   const handleClick = () => {
       fetch("https://api.chucknorris.io/jokes/random")
@@ -87,11 +88,30 @@ function ShowJoke() {
         setData(joke);
       });
   };
+
+  //Dadjoke
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDadData(
+        fetch("https://icanhazdadjoke.com/", {
+          headers: new Headers({
+            accept: "application/json"
+          })
+        })
+          .then(res => res.json())
+          .then(joke => {
+            setDadData(joke);
+          })
+      );
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
   
   return (
     <div>
     <button onClick={handleClick}>Get Chuck Joke</button>
     <p>{data.value}</p>
+    <p>Dad Joke: {dadData.joke}</p>
     </div>
   );
 
