@@ -1,6 +1,6 @@
 # Flow3Week1
 Andreas Petersen - cph-ap294 <br>
-(Beaware that non of the projectes were cleaned up as stated in some of the assignments. I was lazy...)
+(Be aware that non of the projectes were cleaned up as stated in some of the assignments. I was lazy...)
 
 ## Tuesday - 24/03-2020
 The assignment "JavaScript/React" can be found in the in the folder "Week1Day1" under Tir-24-03-2020.
